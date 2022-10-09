@@ -30,7 +30,7 @@
     "prepare": "cross-env NODE_ENV=production yarn run build",
     "build": "babel src -d .",
     "watch": "babel -w src --out-dir .",
-    "test": "jest --passWithNoTests"
+    "test": "jest"
   },
   "peerDependencies": {
     "medusa-interfaces": "1.x"
@@ -39,5 +39,8 @@
   "keywords": [
     "medusa-plugin",
     "medusa-plugin-payment"
-  ]
+  ],
+  "dependencies": {
+    "iyzipay": "^2.0.48"
+  }
 }
