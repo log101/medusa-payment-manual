@@ -78,7 +78,7 @@ const request = {
   ],
 }
 
-describe("Sample", () => {
+describe("Iyzico", () => {
   let iyzipay
 
   beforeAll((done) => {
@@ -86,7 +86,7 @@ describe("Sample", () => {
     done()
   })
 
-  it("should return success", (done) => {
+  it("should initialize iyzipay instance with success", (done) => {
     iyzipay.payment.create(request, (err, res) => {
       expect(res.status).toBe("success")
       done()
