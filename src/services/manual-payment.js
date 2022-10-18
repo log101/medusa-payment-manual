@@ -34,7 +34,7 @@ class ManualPaymentService extends PaymentService {
       currency: Iyzipay.CURRENCY.TRY,
       basketId: "B67832",
       paymentGroup: Iyzipay.PAYMENT_GROUP.LISTING,
-      callbackUrl: "https://www.merchant.com/callback",
+      callbackUrl: "http://localhost:8000/checkout",
       enabledInstallments: [2, 3, 6, 9],
       buyer: {
         id: "BY789",
@@ -131,21 +131,9 @@ class ManualPaymentService extends PaymentService {
    * @return {Promise<{ status: string, data: object }>} result with data and status
    */
   async authorizePayment(session, context) {
-    const status = this.getStatus(session)
-    if (status == PaymentSessionStatus.PENDING) {
-      console.log("\n\n\n\n\nSETTING TO REQUIRES MORE")
-      return {
-        status: PaymentSessionStatus.REQUIRES_MORE,
-      }
-    } else if (status == PaymentSessionStatus.REQUIRES_MORE) {
-      console.log("\n\n\n\n\nNOW DONE")
       return {
         status: "authorized",
         data: { status: "authorized" },
-      }
-    } else {
-      return {
-        status: PaymentSessionStatus.ERROR,
       }
     }
   }
